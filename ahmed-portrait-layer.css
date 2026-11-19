@@ -1,0 +1,118 @@
+/* ------------------------------------------------------------------
+   Ahmed Tohamy — personal layer on top of the mirror's design system
+   ------------------------------------------------------------------ */
+
+/* hero: real portrait as a seated studio plate ---------------------- */
+.forge-art.forge-portrait-art { z-index: 0; }
+
+.forge-portrait-art .portrait-depth-surface {
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  display: grid;
+  place-items: end center;
+  filter: drop-shadow(0 24px 42px rgba(6, 4, 3, .46));
+}
+
+/* soft copper pool behind the cut-out so the figure sits in the room */
+.forge-portrait-art .portrait-depth-surface::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  width: 78%;
+  height: 52%;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(224, 138, 78, .28), rgba(224, 138, 78, .08) 52%, transparent 78%);
+  filter: blur(26px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.forge-portrait-art .portrait-depth-surface .forge-image {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1109 / 1245;
+  margin-inline: auto;
+  inset: auto;
+  translate: none;
+  object-fit: contain;
+  object-position: 50% 100%;
+  border-radius: 0;
+  filter: none;
+  -webkit-mask-image: linear-gradient(180deg, #000 91%, rgba(0, 0, 0, .38) 99%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 91%, rgba(0, 0, 0, .38) 99%, transparent 100%);
+}
+
+/* keep the name readable where it crosses the portrait */
+.forge-name-title .forge-title-word {
+  text-shadow: 0 10px 34px rgba(6, 4, 3, .22);
+}
+
+/* the original silhouette lights are cut for the old cut-out portrait */
+.portrait-cast-shadow,
+.portrait-diffuse-light,
+.portrait-specular-light { display: none !important; }
+
+@media (max-width: 767px) {
+  .forge-portrait-art .portrait-depth-surface { border-radius: 0; }
+  .forge-portrait-art .portrait-depth-surface .forge-image {
+    object-position: 50% 100%;
+    max-height: 100%;
+  }
+}
+
+/* header mark: the wireframe monogram, black knocked out ------------- */
+html .editorial-header .brand-symbol img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 767px) {
+  html .editorial-header .brand-symbol img { width: 26px; height: 26px; }
+}
+
+/* brand letters: 3D icon tiles, matching the template's letter system */
+.brand-letter-face img,
+.brand-reduced-letter img,
+.brand-last-letter img {
+  filter: drop-shadow(0 12px 20px rgba(6, 4, 3, .16));
+}
+
+/* elsewhere: text links under the email -----------------------------
+   (kept in the contact panel so the server-rendered tree stays intact) */
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  margin-top: 16px;
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+
+.contact-socials a {
+  color: #717673;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 1px solid rgba(113, 118, 115, .35);
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.contact-socials a:hover,
+.contact-socials a:focus-visible {
+  color: #1a1410;
+  border-bottom-color: #1a1410;
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .contact-socials { gap: 4px 12px; font-size: 12px; margin-top: 10px; }
+}

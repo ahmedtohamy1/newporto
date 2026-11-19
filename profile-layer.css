@@ -1,0 +1,14 @@
+/* Profile layer: CV links injected into the contact row after hydration. */
+
+/* the injected CV link sits naturally in the contact text row */
+.contact-socials .th-cv-link {
+  color: #9a5a33;
+  border-bottom-color: rgba(154, 90, 51, .4);
+  font-weight: 700;
+}
+
+.contact-socials .th-cv-link:hover,
+.contact-socials .th-cv-link:focus-visible {
+  color: #1a1410;
+  border-bottom-color: #1a1410;
+}
